@@ -1,33 +1,16 @@
 ﻿using System;
-using System.Linq;
 
-namespace ProgLang
+namespace ConsoleApp2
 {
-    class Program
+    public class Program
     {
         static void Main()
         {
-            double[] x = Console.ReadLine().Split(' ').Select(x=>double.Parse(x)).ToArray();
-            double a= double.Parse(Console.ReadLine());
-            for (int i = 0; i < x.Length; i++)
-            {
-                int y = (int)x[i];
-                if (y % 2 != 0&&x[i]>a)
-                {
-                    Console.Write(x[i]+" ");
-                }
-            }
-            Array.Sort(x);
-            Console.WriteLine();
-            for(int i = 0; i < x.Length; i++)
-            {
-                int g=(int)x[i];
-                if (g % 2 == 0)
-                {
-                    Console.Write(x[i]+" ");
-                }
-            }
-
+            int f=int.Parse(Console.ReadLine());
+            string s = Convert.ToString(f,16);
+            Console.WriteLine(s);
         }
+
     }
 }
+
