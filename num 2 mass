@@ -1,0 +1,40 @@
+using System;
+
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main()
+        { 
+            Console.WriteLine("введите длину числа");
+            int y = int.Parse(Console.ReadLine());
+            
+            Console.WriteLine("введите 2 числа заданной длины");
+            
+            int n = int.Parse(Console.ReadLine());
+            int z = int.Parse(Console.ReadLine()); 
+            int[] a = new int[y];
+            int[] b = new int[y];
+            int h = 0;
+            int g=0;
+            while (n!=0)
+            {
+                a[h] = n % 10;
+                b[h]= z % 10;
+                h++;
+                n = n / 10;
+                z = z / 10;
+            }
+            for(int i=0; i < a.Length; i++)
+            {
+                if (a[i] == b[i])
+                {
+                    g++;
+                }
+            }
+            Console.WriteLine("совпадение " + g +" элементов");
+
+        }
+    }
+}
