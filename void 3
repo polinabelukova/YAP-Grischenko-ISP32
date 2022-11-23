@@ -1,0 +1,35 @@
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static int[] GetCubes(int perem,int perem2)
+        {
+            int s = 1 + perem2  - perem;
+           int [] cubes = new int[s];
+            int b = 0;
+            for(int i= perem; i <= perem2; i++)
+            {
+                cubes[b] =i*i*i;
+                b++;
+            }
+            return cubes;   
+        }
+        static void PrintSum(int[] c)
+        {
+            int s = 0;
+            for(int i = 0; i < c.Length; i++) s=s+c[i];
+            Console.WriteLine(s);
+        } 
+
+
+
+        public static void Main()
+        {
+            int startValue = int.Parse(Console.ReadLine());
+            int endValue = int.Parse(Console.ReadLine());
+            PrintSum(GetCubes(startValue, endValue));
+        }
+    }
+}
