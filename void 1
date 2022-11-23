@@ -1,0 +1,35 @@
+using System;
+
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static bool Proverka(string a)
+        {
+            bool n = false;
+            foreach (char c in a)
+            {
+                if (c == 'e')
+                {
+                    n = true;
+                }
+            }
+            return n;
+        }
+
+
+        static void Main()
+        {
+
+            string s = Console.ReadLine();
+            bool prov2 = Proverka(s);
+            if (prov2)
+            {
+                Console.WriteLine("данный текст содержит латинскую e");
+            }
+            else Console.WriteLine("данный текст не содержит латинскую e");
+           
+        }
+    }
+}
