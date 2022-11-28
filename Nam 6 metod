@@ -1,0 +1,36 @@
+using System;
+
+
+class Program
+{
+
+    static void Main()
+    {
+        int number = int.Parse(Console.ReadLine());
+        VasyaStyle(number);
+    }
+
+    public static void VasyaStyle(int number)
+    {
+        int[] calc = { 2, 3, 7 };
+        bool proverkaNaSovp = false;
+        for (int i = 0; i < calc.Length; i++)
+        {
+            for (int j = 0; j < calc.Length; j++)
+            {
+                int b = number - (calc[i] * calc[j]);
+                int k = calc[i] * calc[j];
+                if (b > 0 && b == 2 || b == 3 || b == 7)
+                {
+                    Console.WriteLine(calc[i] + " * " + calc[j] + " + " + b);
+                    proverkaNaSovp = true;
+                }
+            }
+        }
+        if (!proverkaNaSovp)
+        {
+            Console.WriteLine("Неправильно введенное число.");
+        }
+    }
+
+}
