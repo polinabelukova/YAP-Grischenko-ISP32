@@ -1,0 +1,46 @@
+using System;
+using System.Globalization;
+namespace ConsoleApp5
+{
+  public class MyString
+        {
+           public string Reverse(string s)
+            {
+            char[] arr = s.ToCharArray();
+            Array.Reverse(arr);
+            return new string(arr);
+            }
+
+        public string UcFirst(string b)
+        {
+            char[] letters = b.ToCharArray();
+            letters[0] = char.ToUpper(letters[0]);
+            return new string(letters);
+        }
+        public string UcWords(string c)
+        {
+            TextInfo t = CultureInfo.CurrentCulture.TextInfo;
+            string titleCase = t.ToTitleCase(c);
+            return titleCase;
+        }
+        }
+
+    class Program
+    {
+     
+
+        static void Main()
+        {
+            string a = Console.ReadLine();
+            string b = a;
+            string c = a;
+           MyString mystr = new MyString();
+           a = mystr.Reverse(a);
+            Console.WriteLine(a);
+           b = mystr.UcFirst(b);
+            Console.WriteLine(b);
+            c= mystr.UcWords(c);
+            Console.WriteLine(c);
+        }
+    }
+}
