@@ -1,0 +1,33 @@
+using System;
+using System.Linq;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+        public class Barrel
+        {
+            public string material;
+            public int volume;
+            public void ToChange(string a)
+            {
+                material = a;
+            }
+            public void ToChange(int b)
+            {
+                volume = b;
+            }
+        }
+
+        static void Main()
+            {
+                var barrel = new Barrel();
+                barrel.material = "oak";
+                barrel.volume = 200;
+                barrel.ToChange(100);
+                barrel.ToChange("beech");
+                Console.WriteLine(barrel.material +" "+barrel.volume);
+            }
+
+        }
+    }
