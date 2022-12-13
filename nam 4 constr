@@ -1,0 +1,114 @@
+using System;
+using System.Linq;
+
+namespace ProgLang
+{
+    class Money
+    {
+        public string n = null, n1 = null;
+        public int r = 0, c = 0;
+        public Money() { }
+        public Money(string rubl, string rubl1)
+        {
+            if (int.Parse(rubl) > 0)
+            {
+                if (rubl1 == "р.")
+                {
+                    n = rubl1;
+                    r = int.Parse(rubl);
+                }
+                else
+                {
+                    n1 = rubl1;
+                    c = int.Parse(rubl);
+                    while (c >= 100)
+                    {
+                        r++;
+                        c -= 100;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Не может быть отрицательным.");
+            }
+
+        }
+        public Money(string ru, string rn, string co, string con)
+        {
+            if (int.Parse(ru) > 0 && int.Parse(co) > 0)
+            {
+                if (rn == "коп.")
+                {
+                    Console.WriteLine("Рубли и копейки перепутаны местами.");
+                }
+                else
+                {
+                    n = rn;
+                    r = int.Parse(ru);
+                    n1 = con;
+                    c = int.Parse(co);
+                    while (c >= 100)
+                    {
+                        r++;
+                        c -= 100;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Не может быть отрицательным.");
+            }
+
+
+
+        }
+        public void Print()
+        {
+            if (r == 0)
+            {
+                Console.WriteLine($"{c} {n1}");
+            }
+            else
+            {
+                Console.WriteLine($" {r} {n}, {c} {n1}");
+            }
+        }
+        public void Sum(Money a, Money b)
+        {
+
+            Money v = new Money();
+            v.c = a.c + b.c;
+            v.r = a.r + b.r;
+            while (v.c >= 100)
+            {
+                v.r++;
+                v.c -= 100;
+            }
+            Console.WriteLine($" {v.r}, {v.c}");
+        }
+        public void Raznica(Money a, Money b)
+        {
+            Money v = new Money();
+            v.c = a.c - b.c;
+            v.r = a.r - b.r;
+            Console.WriteLine($" {v.r}, {v.c}");
+        }
+
+    }
+
+    class Program
+    {
+        public static void Main()
+        {
+            Money money0 = new Money("12", "р.");
+            Money money1 = new Money("20", "р.", "20", "коп.");
+            money1.Print();
+            money1.Sum(money1, money0);
+            money1.Raznica(money1, money0);
+
+
+
+        }
+    }
+}
