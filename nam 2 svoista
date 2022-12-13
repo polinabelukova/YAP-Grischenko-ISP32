@@ -1,0 +1,87 @@
+using System;
+
+
+
+namespace ConsoleApp6
+{
+
+
+    class Program
+    {
+        class Vasya
+        {
+            public string n;
+            public int a;
+           public string Name
+                {
+                get 
+                    {
+                    
+                       if (n!= "Василий")
+                        return n =($"Я не {n}, а Василий!");
+                    else
+                       return n;
+                }
+                set
+                {
+                   n=value;
+
+                }
+                }
+            public int Age
+            {
+                get
+                {
+                    return a;
+                }
+                
+                set {
+                    
+                    if (value<0) { a = 0; }
+                    else if (value > 122) {  a = 122; }
+                    else {  a=value; }  }
+            }
+
+            public Vasya(string name, int age)
+            {
+                a= age;
+                n= name;
+
+            }
+
+            public void RunMe()
+            {
+                  if  (a % 10==1)
+                {
+                    Console.WriteLine($"Мне {a} год");
+
+                }
+                  else if(a%10==2||a%10==4||a%10==3&&a<10||a>20){
+                    Console.WriteLine($"Мне {a} года");
+                }
+                  else { Console.WriteLine($"Мне {a} лет"); }
+                
+            }
+            
+          
+           
+        }
+     
+        static void Main()
+        {
+            Console.WriteLine("Введите имя");
+            string name=Console.ReadLine();
+
+            Console.WriteLine("Введите возраст");
+            int age=Convert.ToInt32(Console.ReadLine());
+            Vasya Surprise = new Vasya(name,age);
+
+            Surprise.Name = name;
+            Surprise.Age = age;
+            Surprise.RunMe();
+            Console.WriteLine(Surprise.Name);
+        }
+
+    
+    }
+}
